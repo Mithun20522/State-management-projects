@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Product from '../components/Product'
+import ProductContext from '../context/product/productContext.js';
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
+  const {prodData, setProdData} = useContext(ProductContext);
+
   useEffect(() => {
     const getProducts = async() => {
       const res = await fetch('https://fakestoreapi.com/products?limit=20');
       const data = await res.json();
-      setProducts(data);
+      setProdData(data);
     }
     getProducts();
   },[])
@@ -15,8 +17,8 @@ const Home = () => {
   return (
     <section className='flex flex-wrap p-5 gap-5 w-full items-center justify-center'>
       {
-        products && products.map((product) => (
-            <Product product = {product}/>
+        prodData && prodData.map((product) => (
+            <Product key={product.id} product = {product}/>
         ))
       }
     </section>

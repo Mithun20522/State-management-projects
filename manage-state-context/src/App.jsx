@@ -5,7 +5,7 @@ import Error from './pages/Error';
 import Header from './components/Header';
 import About from './pages/About';
 import Cart from './pages/Cart';
-
+import {Toaster} from 'react-hot-toast';
 const App = () => {
   return (
     <BrowserRouter>
@@ -17,6 +17,7 @@ const App = () => {
         <Route path='/about' element={<About/>} />
         <Route path='*' element={<Error/>} />
       </Routes>
+      <Toaster/>
     </BrowserRouter>
   )
 }

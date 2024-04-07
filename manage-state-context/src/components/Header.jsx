@@ -8,7 +8,7 @@ const Header = () => {
             <li className='hover:underline cursor-pointer'>Home</li>
             <li className='hover:underline cursor-pointer'>About</li>
         </ul>
-        <FaShoppingCart size={30}/>
+        <FaShoppingCart size={30} className='cursor-pointer'/>
     </header>
   )
 }
